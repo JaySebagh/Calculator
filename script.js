@@ -25,4 +25,6 @@ function getFormattedNumber(num) {
     return value;
 }
 
-printOutput("9999");
+function reverseNumberFormat(num) {
+    return Number(num.replace(/,/g,''));
+}
