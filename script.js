@@ -20,6 +20,9 @@ function printOutput(num) {
 }
 
 function getFormattedNumber(num) {
+    if(num == "-") {
+        return "";
+    }
     let n = Number(num);
     var value = n.toLocaleString("en");
     return value;
