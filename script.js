@@ -41,6 +41,18 @@ for (let i = 0; i < operator.length; i++) {
                 output = output.substr(0, output.length - 1);
                 printOutput(output);
             }
+        } else {
+            let output = getOutput();
+            let history = getHistory();
+            if(output!="") {
+                let result = eval(history);
+                printOutput(result);
+                printHistory("");
+            } else {
+                history = history + this.id;
+                printHistory(history);
+                printOutput("");
+            }
         }
     })
 }
