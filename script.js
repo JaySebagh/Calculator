@@ -47,17 +47,27 @@ for (let i = 0; i < operator.length; i++) {
         } else {
             let output = getOutput();
             let history = getHistory();
-            if(output!="") {
-                let result = eval(history);
-                printOutput(result);
-                printHistory("");
-            } else {
-                history = history + this.id;
-                printHistory(history);
-                printOutput("");
+            if(output == "" && history!="") {
+                if(isNaN(history[history.length - 1])) {
+                    history = history.substr(0, history.length - 1);
+                }
+            }
+            if(output!="" || history!="") {
+                output = output == ""?
+                output: reverseNumberFormat(output);
+                history = history + output;
+                if(this.id == "-") {
+                    let result = eval(history);
+                    printOutput(result);
+                    printHistory("");
+                } else {
+                    history = history + this.id;
+                    printHistory(history);
+                    printOutput("");
+                }
             }
         }
-    })
+    });
 }
 
 let number = document.getElementsByClassName("number");
