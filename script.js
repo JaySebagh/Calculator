@@ -32,6 +32,16 @@ function reverseNumberFormat(num) {
 let operator = document.getElementsByClassName("operator");
 for (let i = 0; i < operator.length; i++) {
     operator[i].addEventListener('click', function() {
+        if(this.id == "clear") {
+            printHistory("");
+            printOutput("");
+        } else if (this.id == "backspace") {
+            let output = reverseNumberFormat(getOutput).toString();
+            if(output) {
+                output = output.substr(0, output.length - 1);
+                printOutput(output);
+            }
+        }
     })
 }
 
