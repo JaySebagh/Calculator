@@ -39,7 +39,7 @@ for (let i = 0; i < operator.length; i++) {
             printHistory("");
             printOutput("");
         } else if (this.id == "backspace") {
-            let output = reverseNumberFormat(getOutput).toString();
+            let output = reverseNumberFormat(getOutput()).toString();
             if(output) {
                 output = output.substr(0, output.length - 1);
                 printOutput(output);
@@ -53,10 +53,9 @@ for (let i = 0; i < operator.length; i++) {
                 }
             }
             if(output!="" || history!="") {
-                output = output == ""?
-                output: reverseNumberFormat(output);
+                output = output == ""?output: reverseNumberFormat(output);
                 history = history + output;
-                if(this.id == "-") {
+                if(this.id == "=") {
                     let result = eval(history);
                     printOutput(result);
                     printHistory("");
